@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>add report</title>
+    {{template "css"}}
+    {{template "js"}}
+
+    <script type="text/javascript">
+        function upFile() {
+            var frm = new FormData($("form")[0]);
+            var upRet = "";
+            var upUrl = "/report/upload";
+            $.ajax({
+                url: upUrl,
+                type: 'POST',
+                async: false,
+                cache: false,
+                data: frm,
+                processData: false,
+                contentType: false
+            }).done(function (res) {
+                upRet = res;
+            }).fail(function (res) {
+                upRet = res;
+            });
+
+            return upRet;
+        }
+        
+        function doBack() {
+            $(location).attr('href', '/report/list');
+        }
+
+        function doSubmit() {
+
+            $("#report").submit();
+        }
+
+    </script>
+</head>
+<body>
+
+<p class="basic-grey">
+    <input type="button" value="返回" onclick="doBack()">
+</p>
+
+<form id="tpl"  type="multipart/form-data" class="basic-grey">
+    <h2><span>${tip}</span></h2>
+
+    <p>
+        <span>模板:</span>&nbsp;
+        <input name="uf" v-model="tip" type="file">&nbsp;&nbsp;
+        <input type="button" value="上传" v-on:click="upRtpl">
+    </p>
+</form>
+
+<form v-if="vT.upFinished" method="post" class="basic-grey" id="report" action="/report/add/submit">
+    <label>
+        <span>报表名称:</span>
+        <input type="text" v-model="reportName">
+    </label>
+    <label>
+        <span>时间类型:</span>
+        <select name="timeType" v-model="timeType">
+            <option value="1">日报</option>
+            <option value="2">周报</option>
+            <option value="3">月报</option>
+            <option value="4">季报</option>
+            <option value="5">年报</option>
+            <option value="6">实时</option>
+            <option value="7">任意</option>
+
+        </select>
+    </label>
+    <label><span>默认值:</span><input type="text" v-model="timeDefault"></label>
+    <label>保留:<input type="text" v-model="fmtDefault" placeholder="0-7">位小数
+    </label>
+    <label>
+        <span>&nbsp;</span>
+        <input value="提交" type="submit" onclick="doSubmit()">
+    </label>
+</form>
+
+<script>
+    var vT = new Vue({
+        el: '#tpl',
+        delimiters: ['${', '}'],
+        data: {
+            upFinished: false,
+            tip: ''
+        },
+        methods: {
+            upRtpl: function () {
+                //检查文件
+                if (this.tip.length == 0) {
+                    this.tip = "未选择文件";
+                    //console.log(this.tip)
+                    return;
+                }
+                var extType = "xlsx";
+                var dotIndex = this.tip.lastIndexOf(".");
+                var ext = this.tip.substring(dotIndex + 1, this.tip.length).toLowerCase();
+
+                if (extType != ext) {
+                    this.tip = "模板文件必须是xlsx文件";
+                    return;
+                }
+
+                //调用ajax完成模板上传
+                var ret = upFile();
+
+                ret=$.parseJSON(ret);
+
+                vR.reportName = ret.RName;
+                this.tip=ret.Msg;
+
+                this.upFinished = true;
+
+            }
+        }
+
+    });
+
+    var vR = new Vue({
+        el: '#report',
+        delimiters: ['${', '}'],
+        data: {
+            reportName: '',//报表名称
+            timeType: 1,//时间类型
+            timeDefault: '',//默认时间
+            fmtDefault: 2//默认精度
+        }
+
+
+    });
+
+
+</script>
+</body>
+</html>

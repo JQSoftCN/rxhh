@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+
+    {{template "rhead"}}
+    <style>
+<!--
+A {
+    text-decoration:none;
+    color:#000000;
+    font-size:9pt;
+}
+-->
+</style>
+    <script type="text/javascript">
+
+        function doClose() {
+            window.parent.location.href="/report";
+        }
+
+        function doRecalc(isClearCache) {
+            var wsUrl="{{.WsUrl}}";
+            if(isClearCache){
+                wsUrl+="?reCalc=true"
+            }
+            var frSheet=$("#frSheet",parent.document);
+            frSheet.doCalc(wsUrl);
+
+        }
+    </script>
+</head>
+<body topmargin=0 leftmargin=0 bgcolor="#808080">
+<table border=0 cellspacing=1>
+ <tr id="tabs">
+  <td bgcolor=#FFFFFF  nowrap><input type="button" onclick="doClose()" value="关闭">
+   报表名称:{{.Name}}
+&nbsp;&nbsp;{{.DateTime}}&nbsp;&nbsp;<input type="button" value="刷新" onclick="doRecalc(false)">
+   <input type="button" value="重算" onclick="doRecalc(true)">
+  </td>
+ </tr>
+</table>
+</body>
+</html>
+

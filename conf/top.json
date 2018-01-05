@@ -1,0 +1,16 @@
+{
+  "locale": "zh-CN",
+  "RealDB": {
+    "Name":"TPRI",
+    "Url": "admin/admin@16.16.82.195:12084",
+    "Size": 20
+  },
+  "Sim":{
+    "Source":"kf",
+    "Driver":"TPRI",
+    "DB":"eDNA"
+  },
+  "Web":{
+    "Port":":1789"
+  }
+}

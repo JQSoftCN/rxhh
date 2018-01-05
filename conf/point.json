@@ -1,0 +1,56 @@
+{
+  "ValType": {
+    "INT32": {
+      "zh-CN": "INT32",
+      "en-US": "INT32"
+    },
+    "INT64": {
+      "zh-CN": "INT64",
+      "en-US": "INT64"
+    },
+    "FLOAT32": {
+      "zh-CN": "FLOAT32",
+      "en-US": "FLOAT32"
+    },
+    "FLOAT64": {
+      "zh-CN": "FLOAT64",
+      "en-US": "FLOAT64"
+    },
+    "DIGITAL": {
+      "zh-CN": "DIGITAL",
+      "en-US": "DIGITAL"
+    },
+    "STRING": {
+      "zh-CN": "STRING",
+      "en-US": "STRING"
+    },
+    "BLOB": {
+      "zh-CN": "BLOB",
+      "en-US": "BLOB"
+    },
+    "VOID": {
+      "zh-CN": "VOID",
+      "en-US": "VOID"
+    }
+  },
+  "Type": {
+    "Real": {
+      "zh-CN": "实时库测点",
+      "en-US": "Real-Point"
+    },
+    "Manual": {
+      "zh-CN": "手工测点",
+      "en-US": "Manual-Point"
+    },
+    "Pre": {
+      "zh-CN": "预处理测点",
+      "en-US": "Prepare-Point"
+    },
+    "Curve": {
+      "zh-CN": "曲线测点",
+      "en-US": "Curve-Point"
+    }
+  },
+
+  "defaultFmt":"2"
+}

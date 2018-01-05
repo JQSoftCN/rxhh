@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>add report</title>
+    <script language="JavaScript" src="/web/js/jquery-3.2.1.min.js" type="text/javascript" />
+</head>
+<body>
+<form enctype="multipart/form-data" action="/report/upload" method="post">
+    <input type="hidden" name="token" value="{...{.}...}"/>
+    <table width="100%">
+        <tr>
+            <td>报表模板</td>
+            <td id="tdu">
+                <input type="file" id="uf" name="uf" />
+                <input type="submit" value="上传报表" />
+            </td>
+        </tr>
+        <tr>
+            <td>报表名称</td>
+            <td id="rname">
+            </td>
+        </tr>
+        <tr>
+            <td>时间类型</td>
+            <td>
+                <select>
+                    <option>======</option>
+                    <option>日</option>
+                    <option>周</option>
+                    <option>旬</option>
+                    <option>月</option>
+                    <option>季度</option>
+                    <option>年度</option>
+                    <option>实时</option>
+                </select>
+            </td>
+        </tr>
+
+    </table>
+
+
+</form>
+
+</body>
+</html>

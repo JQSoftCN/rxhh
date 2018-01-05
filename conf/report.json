@@ -1,0 +1,41 @@
+{
+  "rtRoot": "rts",
+  "rTimeType": {
+    "Any": {
+      "zh-CN": "任意",
+      "en-US": "Any"
+    },
+    "Real": {
+      "zh-CN": "实时",
+      "en-US": "RealTime"
+    },
+    "Hour": {
+      "zh-CN": "时",
+      "en-US": "Hour"
+    },
+    "Day": {
+      "zh-CN": "日",
+      "en-US": "Day"
+    },
+    "Week": {
+      "zh-CN": "周",
+      "en-US": "Week"
+    },
+    "TenDay": {
+      "zh-CN": "旬",
+      "en-US": "TenDay"
+    },
+    "Month": {
+      "zh-CN": "月",
+      "en-US": "Month"
+    },
+    "Quarter": {
+      "zh-CN": "季",
+      "en-US": "Quarter"
+    },
+    "Year": {
+      "zh-CN": "年",
+      "en-US": "Year"
+    }
+  }
+}

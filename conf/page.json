@@ -1,0 +1,22 @@
+{
+  "Add":{
+    "zh-CN":"新增",
+    "en-US":"Add"
+  },
+  "Edit":{
+    "zh-CN":"修改",
+    "en-US":"Edit"
+  },
+  "Del":{
+    "zh-CN":"删除",
+    "en-US":"Delete"
+  },
+  "Save":{
+    "zh-CN":"保存",
+    "en-US":"Save"
+  },
+  "Back":{
+    "zh-CN":"返回",
+    "en-US":"Back"
+  }
+}
