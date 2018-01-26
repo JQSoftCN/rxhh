@@ -1,4 +1,4 @@
-package funcs
+ package funcs
 
 import (
 	"github.com/robertkrimen/otto"
