@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 	"strconv"
-	"../mt"
+	"github.com/qjsoftcn/gutils"
 )
 
 const FUNC_FMT = "fmt"
@@ -57,11 +57,7 @@ func fmtFloat(f float64, valFmt string) string {
 	}
 }
 
-func fmtTime(t time.Time, valFmt string) string {
-	tfmt := mt.ToGoTimeFmt(valFmt)
-	fr := t.Format(tfmt)
-	return fr
-}
+
 
 func fmtString(s string, valFmt string) string {
 	//float
@@ -71,9 +67,9 @@ func fmtString(s string, valFmt string) string {
 	}
 
 	//time
-	t, err := time.ParseInLocation(mt.ToGoTimeFmt(valFmt), s, time.Local)
+	t, err :=  time.ParseInLocation(gutils.ToGoTimeFmt(valFmt), s, time.Local)
 	if err == nil {
-		return fmtTime(t, valFmt)
+		return gutils.Format(t, valFmt)
 	}
 
 	return s
@@ -93,7 +89,7 @@ func fmtResult(ctx *FuncContext, val interface{}, valFmt string) string {
 		fr = fmtString(s, valFmt)
 	case time.Time:
 		t, _ := val.(time.Time)
-		fr = fmtTime(t, valFmt)
+		fr = gutils.Format(t, valFmt)
 	default:
 		fr = fmt.Sprint(val)
 	}

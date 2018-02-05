@@ -9,11 +9,11 @@ import (
 	"io/ioutil"
 	"path/filepath"
 	"os"
-	"../confs"
 	"../funcs"
 	"log"
 	"encoding/json"
 	"github.com/qjsoftcn/gutils"
+	"github.com/qjsoftcn/confs"
 )
 
 const (

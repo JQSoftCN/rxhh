@@ -3,7 +3,7 @@ package points
 import (
 	"fmt"
 	"time"
-	"../confs"
+	"github.com/qjsoftcn/confs"
 )
 
 const Time_Format = "2006-01-02 15:04:05"
