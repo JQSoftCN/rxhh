@@ -6,12 +6,12 @@ import (
 	"html/template"
 	"../../reports"
 	"strconv"
-	"../../confs"
 	"fmt"
 	"time"
 	"../../funcs"
 	"golang.org/x/net/websocket"
 	"encoding/json"
+	"github.com/qjsoftcn/confs"
 )
 
 func handleRunReport() {
@@ -148,7 +148,8 @@ func calcReport(ch chan int64, ri reports.ReportInfo, ws *websocket.Conn) {
 var rWsMap map[string]bool
 
 func makeWsUrl(host,rid string)string{
-	return "ws://" + host + confs.WebPort() + "/r" + rid
+	port:=confs.GetString("top","Web","Port")
+	return "ws://" + host + port + "/r" + rid
 }
 
 //report template head

@@ -178,6 +178,10 @@ type HourFeature struct {
 	HisCount     int
 	ValSimulator PointFeatureSimulator
 	SecSimulator PointFeatureSimulator
+	AvgTimeInterval float64
+	MinTimeInterval int64
+	MaxTimeInterval int64
+
 }
 
 func (hf *HourFeature) Sec(base int64) int64 {
@@ -291,7 +295,7 @@ func toOneHF(hour int, hfs *[]HourFeature) HourFeature {
 			continue
 		}
 
-		hf.ValLawer.Merge(v.ValLawer)
+		//hf.ValLawer.Merge(v.ValLawer)
 
 		if v.MinTimeInterval < hf.MinTimeInterval {
 			hf.MinTimeInterval = v.MinTimeInterval
@@ -305,7 +309,7 @@ func toOneHF(hour int, hfs *[]HourFeature) HourFeature {
 		vNum++
 	}
 
-	hf.AvgTimeInterval = atiSum / vNum
+	//hf.AvgTimeInterval = atiSum / vNum
 	hf.HisCount = hcSum / vNum
 
 	return hf
@@ -334,11 +338,11 @@ func BuildHF(db RealDB, p *Point, start, end time.Time) *HourFeature {
 		return nil
 	}
 
-	avl := AnalogValLawer{}
+	//avl := AnalogValLawer{}
 
 	hf := HourFeature{}
 	hf.Hour = start.Hour()
-	hf.ValLawer = &avl
+	//hf.ValLawer = &avl
 
 	return nil
 }

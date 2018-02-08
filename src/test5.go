@@ -3,11 +3,11 @@ package main
 import (
 	"../pkg/reports"
 	"../pkg/funcs"
-	"../pkg/confs"
 	"../pkg/points"
 	"fmt"
 	"time"
 	_"../pkg/tpri"
+	"github.com/qjsoftcn/confs"
 )
 
 func main() {

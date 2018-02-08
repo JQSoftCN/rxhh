@@ -3,9 +3,9 @@ package main
 import (
 	"net/http"
 	"../pkg/pages"
-	"../pkg/confs"
 	"../pkg/pages/reportsys"
 
+	"github.com/qjsoftcn/confs"
 )
 
 func main() {
@@ -17,7 +17,8 @@ func main() {
 	pages.Publish()
 	reportsys.Publish()
 
-	http.ListenAndServe(confs.WebPort(), nil)
+	port:=confs.GetString("top","Web","Port")
+	http.ListenAndServe(port, nil)
 
 
 }

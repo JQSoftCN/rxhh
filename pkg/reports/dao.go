@@ -2,7 +2,8 @@ package reports
 
 import (
 	"time"
-	"../confs"
+
+	"github.com/qjsoftcn/confs"
 )
 
 type RTimeType struct {

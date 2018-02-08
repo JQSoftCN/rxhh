@@ -1,10 +1,10 @@
 package main
 
 import (
-	"../pkg/confs"
 	"../pkg/points"
 	"../pkg/sim"
 	_"../pkg/tpri"
+	"github.com/qjsoftcn/confs"
 )
 
 func main() {
